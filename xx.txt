@@ -1,0 +1,111 @@
++--------+-----------+--------------------------------------------------+----------------------------------------+---------------------------------------------------------------------+------------+
+| Domain | Method    | URI                                              | Name                                   | Action                                                              | Middleware |
++--------+-----------+--------------------------------------------------+----------------------------------------+---------------------------------------------------------------------+------------+
+|        | GET|HEAD  | /                                                |                                        | App\Http\Controllers\DashboardController@index                      | web,auth   |
+|        | GET|HEAD  | clerk                                            | clerk.index                            | App\Http\Controllers\ClerksController@index                         | web,auth   |
+|        | POST      | clerk                                            | clerk.store                            | App\Http\Controllers\ClerksController@store                         | web,auth   |
+|        | GET|HEAD  | clerk/create                                     | clerk.create                           | App\Http\Controllers\ClerksController@create                        | web,auth   |
+|        | GET|HEAD  | clerk/{clerk}                                    | clerk.show                             | App\Http\Controllers\ClerksController@show                          | web,auth   |
+|        | DELETE    | clerk/{clerk}                                    | clerk.destroy                          | App\Http\Controllers\ClerksController@destroy                       | web,auth   |
+|        | PUT|PATCH | clerk/{clerk}                                    | clerk.update                           | App\Http\Controllers\ClerksController@update                        | web,auth   |
+|        | GET|HEAD  | clerk/{clerk}/edit                               | clerk.edit                             | App\Http\Controllers\ClerksController@edit                          | web,auth   |
+|        | GET|HEAD  | delete_judgment_record                           |                                        | App\Http\Controllers\JudgementController@DeleteJudgmentRecord       | web,auth   |
+|        | GET|HEAD  | home                                             |                                        | App\Http\Controllers\HomeController@index                           | web,auth   |
+|        | POST      | judgments_bulk_save                              | judgments_bulk_save                    | App\Http\Controllers\JudgementController@bulkSave                   | web,auth   |
+|        | GET|HEAD  | load_saved_judgements                            |                                        | App\Http\Controllers\JudgementController@LoadSavedJudgements        | web,auth   |
+|        | POST      | login                                            |                                        | App\Http\Controllers\Auth\AuthController@login                      | web,guest  |
+|        | GET|HEAD  | login                                            |                                        | App\Http\Controllers\Auth\AuthController@showLoginForm              | web,guest  |
+|        | GET|HEAD  | logout                                           |                                        | App\Http\Controllers\Auth\AuthController@logout                     | web        |
+|        | POST      | manage_configs                                   | manage_configs.store                   | App\Http\Controllers\ConfigsController@store                        | web,auth   |
+|        | GET|HEAD  | manage_configs                                   | manage_configs.index                   | App\Http\Controllers\ConfigsController@index                        | web,auth   |
+|        | GET|HEAD  | manage_configs/create                            | manage_configs.create                  | App\Http\Controllers\ConfigsController@create                       | web,auth   |
+|        | PUT|PATCH | manage_configs/{manage_configs}                  | manage_configs.update                  | App\Http\Controllers\ConfigsController@update                       | web,auth   |
+|        | DELETE    | manage_configs/{manage_configs}                  | manage_configs.destroy                 | App\Http\Controllers\ConfigsController@destroy                      | web,auth   |
+|        | GET|HEAD  | manage_configs/{manage_configs}                  | manage_configs.show                    | App\Http\Controllers\ConfigsController@show                         | web,auth   |
+|        | GET|HEAD  | manage_configs/{manage_configs}/edit             | manage_configs.edit                    | App\Http\Controllers\ConfigsController@edit                         | web,auth   |
+|        | POST      | manage_court_fields                              | manage_court_fields.store              | App\Http\Controllers\ManageCourtFieldsController@store              | web,auth   |
+|        | GET|HEAD  | manage_court_fields                              | manage_court_fields.index              | App\Http\Controllers\ManageCourtFieldsController@index              | web,auth   |
+|        | GET|HEAD  | manage_court_fields/create                       | manage_court_fields.create             | App\Http\Controllers\ManageCourtFieldsController@create             | web,auth   |
+|        | DELETE    | manage_court_fields/{manage_court_fields}        | manage_court_fields.destroy            | App\Http\Controllers\ManageCourtFieldsController@destroy            | web,auth   |
+|        | PUT|PATCH | manage_court_fields/{manage_court_fields}        | manage_court_fields.update             | App\Http\Controllers\ManageCourtFieldsController@update             | web,auth   |
+|        | GET|HEAD  | manage_court_fields/{manage_court_fields}        | manage_court_fields.show               | App\Http\Controllers\ManageCourtFieldsController@show               | web,auth   |
+|        | GET|HEAD  | manage_court_fields/{manage_court_fields}/edit   | manage_court_fields.edit               | App\Http\Controllers\ManageCourtFieldsController@edit               | web,auth   |
+|        | GET|HEAD  | manage_court_fields/{name}/{type}                | manage_court_fields.displayCourtFields | App\Http\Controllers\ManageCourtFieldsController@displayCourtFields | web,auth   |
+|        | GET|HEAD  | manage_courts                                    | manage_courts.index                    | App\Http\Controllers\ManageCourtsController@index                   | web,auth   |
+|        | POST      | manage_courts                                    | manage_courts.store                    | App\Http\Controllers\ManageCourtsController@store                   | web,auth   |
+|        | GET|HEAD  | manage_courts/copy/{id}                          | manage_courts.copy                     | App\Http\Controllers\ManageCourtsController@copy                    | web,auth   |
+|        | GET|HEAD  | manage_courts/create                             | manage_courts.create                   | App\Http\Controllers\ManageCourtsController@create                  | web,auth   |
+|        | GET|HEAD  | manage_courts/data                               | manage_courts.data                     | App\Http\Controllers\ManageCourtsController@data                    | web,auth   |
+|        | DELETE    | manage_courts/{manage_courts}                    | manage_courts.destroy                  | App\Http\Controllers\ManageCourtsController@destroy                 | web,auth   |
+|        | PUT|PATCH | manage_courts/{manage_courts}                    | manage_courts.update                   | App\Http\Controllers\ManageCourtsController@update                  | web,auth   |
+|        | GET|HEAD  | manage_courts/{manage_courts}                    | manage_courts.show                     | App\Http\Controllers\ManageCourtsController@show                    | web,auth   |
+|        | GET|HEAD  | manage_courts/{manage_courts}/edit               | manage_courts.edit                     | App\Http\Controllers\ManageCourtsController@edit                    | web,auth   |
+|        | POST      | manage_judge_court                               | manage_judge_court.store               | App\Http\Controllers\ManageJudgesCourtsController@store             | web,auth   |
+|        | GET|HEAD  | manage_judge_court                               | manage_judge_court.index               | App\Http\Controllers\ManageJudgesCourtsController@index             | web,auth   |
+|        | GET|HEAD  | manage_judge_court/copy/{id}                     | manage_judge_court.copy                | App\Http\Controllers\ManageJudgesCourtsController@copy              | web,auth   |
+|        | GET|HEAD  | manage_judge_court/create                        | manage_judge_court.create              | App\Http\Controllers\ManageJudgesCourtsController@create            | web,auth   |
+|        | GET|HEAD  | manage_judge_court/data                          | manage_judge_court.data                | App\Http\Controllers\ManageJudgesCourtsController@data              | web,auth   |
+|        | GET|HEAD  | manage_judge_court/{manage_judge_court}          | manage_judge_court.show                | App\Http\Controllers\ManageJudgesCourtsController@show              | web,auth   |
+|        | PUT|PATCH | manage_judge_court/{manage_judge_court}          | manage_judge_court.update              | App\Http\Controllers\ManageJudgesCourtsController@update            | web,auth   |
+|        | DELETE    | manage_judge_court/{manage_judge_court}          | manage_judge_court.destroy             | App\Http\Controllers\ManageJudgesCourtsController@destroy           | web,auth   |
+|        | GET|HEAD  | manage_judge_court/{manage_judge_court}/edit     | manage_judge_court.edit                | App\Http\Controllers\ManageJudgesCourtsController@edit              | web,auth   |
+|        | POST      | manage_judgement                                 | manage_judgement.store                 | App\Http\Controllers\JudgementController@store                      | web,auth   |
+|        | GET|HEAD  | manage_judgement                                 | manage_judgement.index                 | App\Http\Controllers\JudgementController@index                      | web,auth   |
+|        | GET|HEAD  | manage_judgement/bulk_create                     | manage_judgement.bulk_create           | App\Http\Controllers\JudgementController@bulkCreate                 | web,auth   |
+|        | GET|HEAD  | manage_judgement/create                          | manage_judgement.create                | App\Http\Controllers\JudgementController@create                     | web,auth   |
+|        | GET|HEAD  | manage_judgement/data                            | manage_judgement.data                  | App\Http\Controllers\JudgementController@data                       | web,auth   |
+|        | GET|HEAD  | manage_judgement/duplicate/{id}                  | manage_judgement.duplicate             | App\Http\Controllers\JudgementController@duplicate                  | web,auth   |
+|        | DELETE    | manage_judgement/{judge_court_id}/{month}/{year} |                                        | App\Http\Controllers\JudgementController@bulkDelete                 | web,auth   |
+|        | GET|HEAD  | manage_judgement/{judge_court_id}/{month}/{year} | manage_judgement.show_bulk             | App\Http\Controllers\JudgementController@showBulk                   | web,auth   |
+|        | PUT|PATCH | manage_judgement/{manage_judgement}              | manage_judgement.update                | App\Http\Controllers\JudgementController@update                     | web,auth   |
+|        | GET|HEAD  | manage_judgement/{manage_judgement}              | manage_judgement.show                  | App\Http\Controllers\JudgementController@show                       | web,auth   |
+|        | DELETE    | manage_judgement/{manage_judgement}              | manage_judgement.destroy               | App\Http\Controllers\JudgementController@destroy                    | web,auth   |
+|        | GET|HEAD  | manage_judgement/{manage_judgement}/edit         | manage_judgement.edit                  | App\Http\Controllers\JudgementController@edit                       | web,auth   |
+|        | POST      | manage_judges                                    | manage_judges.store                    | App\Http\Controllers\ManageJudgesController@store                   | web,auth   |
+|        | GET|HEAD  | manage_judges                                    | manage_judges.index                    | App\Http\Controllers\ManageJudgesController@index                   | web,auth   |
+|        | GET|HEAD  | manage_judges/create                             | manage_judges.create                   | App\Http\Controllers\ManageJudgesController@create                  | web,auth   |
+|        | POST      | manage_judges/filter                             | filter                                 | App\Http\Controllers\ManageJudgesController@filter                  | web,auth   |
+|        | PUT|PATCH | manage_judges/{manage_judges}                    | manage_judges.update                   | App\Http\Controllers\ManageJudgesController@update                  | web,auth   |
+|        | GET|HEAD  | manage_judges/{manage_judges}                    | manage_judges.show                     | App\Http\Controllers\ManageJudgesController@show                    | web,auth   |
+|        | DELETE    | manage_judges/{manage_judges}                    | manage_judges.destroy                  | App\Http\Controllers\ManageJudgesController@destroy                 | web,auth   |
+|        | GET|HEAD  | manage_judges/{manage_judges}/edit               | manage_judges.edit                     | App\Http\Controllers\ManageJudgesController@edit                    | web,auth   |
+|        | GET|HEAD  | manage_monthly_report/duplicate/{id}             | monthly_reports.duplicate              | App\Http\Controllers\monthlyReportsController@duplicate             | web,auth   |
+|        | GET|HEAD  | monthly_reports                                  | monthly_reports.index                  | App\Http\Controllers\monthlyReportsController@index                 | web,auth   |
+|        | POST      | monthly_reports                                  | monthly_reports.store                  | App\Http\Controllers\monthlyReportsController@store                 | web,auth   |
+|        | GET|HEAD  | monthly_reports/bulk_create                      | monthly_reports.bulk_create            | App\Http\Controllers\monthlyReportsController@bulkCreate            | web,auth   |
+|        | GET|HEAD  | monthly_reports/create                           | monthly_reports.create                 | App\Http\Controllers\monthlyReportsController@create                | web,auth   |
+|        | GET|HEAD  | monthly_reports/data                             | monthly_reports.data                   | App\Http\Controllers\monthlyReportsController@data                  | web,auth   |
+|        | GET|HEAD  | monthly_reports/{judge_id}/{month}/{year}        | monthly_reports.show_bulk              | App\Http\Controllers\monthlyReportsController@showBulk              | web,auth   |
+|        | DELETE    | monthly_reports/{judge_id}/{month}/{year}        |                                        | App\Http\Controllers\monthlyReportsController@bulkDelete            | web,auth   |
+|        | PUT|PATCH | monthly_reports/{monthly_reports}                | monthly_reports.update                 | App\Http\Controllers\monthlyReportsController@update                | web,auth   |
+|        | GET|HEAD  | monthly_reports/{monthly_reports}                | monthly_reports.show                   | App\Http\Controllers\monthlyReportsController@show                  | web,auth   |
+|        | DELETE    | monthly_reports/{monthly_reports}                | monthly_reports.destroy                | App\Http\Controllers\monthlyReportsController@destroy               | web,auth   |
+|        | GET|HEAD  | monthly_reports/{monthly_reports}/edit           | monthly_reports.edit                   | App\Http\Controllers\monthlyReportsController@edit                  | web,auth   |
+|        | POST      | monthly_reports_bulk_save                        | monthly_reports_bulk_save              | App\Http\Controllers\monthlyReportsController@bulkSave              | web,auth   |
+|        | POST      | password/email                                   |                                        | App\Http\Controllers\Auth\PasswordController@sendResetLinkEmail     | web,guest  |
+|        | POST      | password/reset                                   |                                        | App\Http\Controllers\Auth\PasswordController@reset                  | web,guest  |
+|        | GET|HEAD  | password/reset/{token?}                          |                                        | App\Http\Controllers\Auth\PasswordController@showResetForm          | web,guest  |
+|        | GET|HEAD  | profile/{id}                                     | profile                                | App\Http\Controllers\ManageJudgesController@profile                 | web,auth   |
+|        | GET|HEAD  | refresh_fields                                   |                                        | App\Http\Controllers\monthlyReportsController@RefreshFields         | web,auth   |
+|        | GET|HEAD  | refresh_fields_bulk                              |                                        | App\Http\Controllers\monthlyReportsController@RefreshFieldsBulk     | web,auth   |
+|        | GET|HEAD  | refresh_judgement_form                           |                                        | App\Http\Controllers\JudgementController@RefreshJudgementForm       | web,auth   |
+|        | GET|HEAD  | register                                         |                                        | App\Http\Controllers\Auth\AuthController@showRegistrationForm       | web,guest  |
+|        | POST      | register                                         |                                        | App\Http\Controllers\Auth\AuthController@register                   | web,guest  |
+|        | GET|HEAD  | registerData                                     | register.data                          | App\Http\Controllers\DashboardController@RegisterTable              | web,auth   |
+|        | GET|HEAD  | reports/full_report                              |                                        | App\Http\Controllers\ReportsController@fullReport                   | web,auth   |
+|        | GET|HEAD  | reports/judges_by_occupation                     |                                        | App\Http\Controllers\ReportsController@judgesByOccupation           | web,auth   |
+|        | GET|HEAD  | reports/judges_distribution                      |                                        | App\Http\Controllers\ReportsController@judgesDistribution           | web,auth   |
+|        | GET|HEAD  | reports/judgments_average                        |                                        | App\Http\Controllers\ReportsController@judgmentsAverage             | web,auth   |
+|        | GET|HEAD  | reports/reports_stats                            |                                        | App\Http\Controllers\ReportsController@reportsStats                 | web,auth   |
+|        | POST      | reports/stats_data                               | reports.stats_data                     | App\Http\Controllers\ReportsController@reportsStatsData             |            |
+|        | GET|HEAD  | reports/user_logs                                |                                        | App\Http\Controllers\ReportsController@userLogs                     | web,auth   |
+|        | GET|HEAD  | reports/users_stats                              |                                        | App\Http\Controllers\ReportsController@usersStats                   | web,auth   |
+|        | GET|HEAD  | save_judgment_record                             |                                        | App\Http\Controllers\JudgementController@SaveJudgmentRecord         | web,auth   |
+|        | POST      | user_profile                                     | user_profile.store                     | App\Http\Controllers\UserProfileController@store                    | web,auth   |
+|        | GET|HEAD  | user_profile                                     | user_profile.index                     | App\Http\Controllers\UserProfileController@index                    | web,auth   |
+|        | GET|HEAD  | user_profile/create                              | user_profile.create                    | App\Http\Controllers\UserProfileController@create                   | web,auth   |
+|        | PUT|PATCH | user_profile/{user_profile}                      | user_profile.update                    | App\Http\Controllers\UserProfileController@update                   | web,auth   |
+|        | DELETE    | user_profile/{user_profile}                      | user_profile.destroy                   | App\Http\Controllers\UserProfileController@destroy                  | web,auth   |
+|        | GET|HEAD  | user_profile/{user_profile}                      | user_profile.show                      | App\Http\Controllers\UserProfileController@show                     | web,auth   |
+|        | GET|HEAD  | user_profile/{user_profile}/edit                 | user_profile.edit                      | App\Http\Controllers\UserProfileController@edit                     | web,auth   |
++--------+-----------+--------------------------------------------------+----------------------------------------+---------------------------------------------------------------------+------------+
